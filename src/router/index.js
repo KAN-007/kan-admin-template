@@ -5,14 +5,15 @@ Vue.use(Router)
 
 export const constantRoutes = [
   {
-    path: '/',
-    redirect: '/login'
-  },
-  {
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
-  }, {
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/404')
+  },
+  {
     path: '/test',
     component: () => import('@/views/test/index')
   }

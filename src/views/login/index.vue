@@ -101,7 +101,7 @@ export default {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             // 路由跳转到首页
-            console.log('成功')
+            this.$router.push({ path: '/test' })
             this.loading = false
           }).catch(() => {
             this.loading = false

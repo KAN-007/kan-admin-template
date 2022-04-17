@@ -13,7 +13,14 @@ import router from './router'
 
 import '@/icons' // icon
 
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('../mock')
+  mockXHR()
+}
+
 Vue.use(ElementUI)
+
+Vue.config.productionTip = false
 
 new Vue({
   el: '#app',
