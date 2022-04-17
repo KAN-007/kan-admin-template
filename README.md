@@ -87,3 +87,5 @@ https://cli.vuejs.org/zh/guide/mode-and-env.html
 封装vuex用户模块
 创建mockjs实例模拟后端接口响应
 创建404页面
+
+页面layout

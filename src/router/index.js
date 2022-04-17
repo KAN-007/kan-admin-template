@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
+/* Layout */
+import Layout from '@/layout'
 
 export const constantRoutes = [
   {
@@ -11,7 +13,21 @@ export const constantRoutes = [
   },
   {
     path: '/404',
-    component: () => import('@/views/404')
+    component: () => import('@/views/404'),
+    hidden: true
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: 'Dashboard', icon: 'dashboard' }
+      }
+    ]
   },
   {
     path: '/test',

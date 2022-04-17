@@ -81,7 +81,17 @@ export default {
 
       },
       loading: false,
-      passwordType: 'password'
+      passwordType: 'password',
+      redirect: undefined
+    }
+  },
+  watch: {
+    $router: {
+      handler: function(route) {
+        console.log(route)
+        this.redirect = route.query && route.query.redirect
+      },
+      immediate: true
     }
   },
   methods: {
@@ -101,7 +111,7 @@ export default {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             // 路由跳转到首页
-            this.$router.push({ path: '/test' })
+            this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
             this.loading = false
