@@ -1,17 +1,23 @@
-import Vue from "vue";
+import Vue from 'vue'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import App from "./App"; // 根组件
-import router from "./router";
+import '@/styles/index.scss' // global css
+
+import App from './App' // 根组件
+import store from './store'
+import router from './router'
+
+import '@/icons' // icon
 
 Vue.use(ElementUI)
 
 new Vue({
-  el: "#app",
+  el: '#app',
   router,
-  render: (h) => h(App),
-});
+  store,
+  render: (h) => h(App)
+})
