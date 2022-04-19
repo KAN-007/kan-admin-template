@@ -1,12 +1,65 @@
 <template>
-  <div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
+  <div :class="classObj" class="app-wrapper">
+    <!-- 手机模式下的遮罩层 -->
+    <div
+      v-if="device === 'mobile' && sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
+    <!-- 左边sideBar -->
+    <sidebar class="sidebar-container" />
+    <!-- 右边mainContainer -->
+    <div class="main-container">容器</div>
   </div>
 </template>
 <script>
+import { Sidebar } from './components'
+
 export default {
-  name: 'Layout'
+  name: 'Layout',
+  components: {
+    Sidebar
+  },
+  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar
+    },
+    device() {
+      return this.$store.state.app.device
+    },
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === 'mobile'
+      }
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "~@/styles/variables.scss";
+@import '~@/styles/mixin.scss';
+
+ .app-wrapper {
+  @include clearfix;
+  @include relative;
+  //交集选择器，名为openSidebar的mobie类
+  &.mobile.openSidebar{
+    position: fixed;
+    top: 0;
+  }
+}
+.drawer-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background: #000;
+  opacity: 0.3;
+}
+</style>
+

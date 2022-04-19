@@ -11,5 +11,11 @@ module.exports = {
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
    */
-  sidebarLogo: false
+  sidebarLogo: true,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether show edit settings
+   */
+  showSettings: false
 }

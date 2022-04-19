@@ -89,3 +89,12 @@ https://cli.vuejs.org/zh/guide/mode-and-env.html
 创建404页面
 
 页面layout
+
+2022/4/18
+定义布局变量variables.scss
+定义样式混入mixin.scss (滚动条、清除浮动、相对定位容器)
+引入侧边栏10%
+
+2022/4/19
+完成侧边栏
+进行到封装SideBarItem组件
