@@ -9,22 +9,32 @@
     <!-- 左边sideBar -->
     <sidebar class="sidebar-container" />
     <!-- 右边mainContainer -->
-    <div class="main-container">容器</div>
+    <div class="main-container">
+      <div :class="{'fixed-header':fixedHeader}">
+        <navbar />
+      </div>
+      <app-main />
+    </div>
   </div>
 </template>
 <script>
-import { Sidebar } from './components'
+import { Sidebar, Navbar, AppMain } from './components'
 
 export default {
   name: 'Layout',
   components: {
-    Sidebar
+    Sidebar,
+    Navbar,
+    AppMain
   },
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar
     },
     device() {
+      return this.$store.state.app.device
+    },
+    fixedHeader() {
       return this.$store.state.app.device
     },
     classObj() {
@@ -60,6 +70,23 @@ export default {
   z-index: 999;
   background: #000;
   opacity: 0.3;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  width: calc(100% - #{$sideBarWidth});
+  transition: width .28s;
+}
+
+.hideSidebar .fixed-header {
+  width:  calc(100% - 54px);
+}
+
+.mobile .fixed-header {
+    width: 100%;
 }
 </style>
 
