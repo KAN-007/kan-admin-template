@@ -38,7 +38,7 @@ export const constantRoutes = [
         path: 'index',
         name: 'Index',
         component: () => import('@/views/test/index'),
-        meta: { title: 'Index', icon: 'index' }
+        meta: { title: 'Index', icon: 'el-icon-platform-eleme' }
       }
     ]
   }

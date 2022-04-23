@@ -12,6 +12,7 @@ import store from './store'
 import router from './router'
 
 import '@/icons' // icon
+import '@/permission' // permission control
 
 if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
