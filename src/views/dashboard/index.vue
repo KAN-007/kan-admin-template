@@ -1,19 +1,29 @@
 <template>
-  <div>
-    <h1>控制台</h1>
-    <button @click="show">show</button>
+  <div class="dashboard-container">
+    <div class="dashboard-text">name: {{ name }}</div>
   </div>
-
 </template>
+
 <script>
-import NProgress from 'nprogress' // progress bar
+import { mapGetters } from 'vuex'
 
 export default {
-  methods: {
-    show() {
-      NProgress.start()
-    }
+  name: 'Dashboard',
+  computed: {
+    ...mapGetters([
+      'name'
+    ])
   }
 }
 </script>
-
+<style lang="scss" scoped>
+.dashboard {
+  &-container {
+    margin: 30px;
+  }
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+  }
+}
+</style>

@@ -109,3 +109,7 @@ https://cli.vuejs.org/zh/guide/mode-and-env.html
 2022/4/23
 封装navBar的rightItem
 权限控制
+
+2022/4/24
+在css预处理器配置在每个vue文件的<style lang="scss">中导入全局样式变量
+完成表格和树组件

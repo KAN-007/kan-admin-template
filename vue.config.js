@@ -30,6 +30,14 @@ module.exports = {
     },
     before: require('./mock/mock-server.js')
   },
+  // css 全局变量 这样做不用在每个vue文件下都再引入一次index.scss
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `@import "~@/styles/index.scss";`
+      }
+    }
+  },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
